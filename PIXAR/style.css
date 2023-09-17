@@ -28,7 +28,7 @@ a {
 .header-point {
   vertical-align: top; /*  수직정렬 top 기준으로 이미지 하단 여백 제거*/
   width: 250px;
-  height: 163.8px;
+  height: 200px;
   max-width: 100%;
 }
 
@@ -117,7 +117,7 @@ body {
 }
 
 .header-point {
-  box-shadow: inset 0 0 10px orange;
+  /* box-shadow: inset 0 0 10px orange; */
   /* wrapper 를 기준으로 posotion relative 설정하지 않으면 viewport 기준  */
   position: absolute;
   right: 0;
