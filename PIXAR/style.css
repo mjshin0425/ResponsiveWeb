@@ -1,0 +1,298 @@
+/* Reset */
+body,
+ul {
+  margin: unset; /* 브라우저에 알아서 초기값으로 계산하도록 명령*/
+  padding: unset;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: unset;
+  font-size: unset;
+  font-weight: unset;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  color: unset;
+  text-decoration: unset;
+}
+
+.header-point {
+  vertical-align: top; /*  수직정렬 top 기준으로 이미지 하단 여백 제거*/
+  width: 250px;
+  height: 163.8px;
+  max-width: 100%;
+}
+
+/* Typography */
+:root {
+  font-size: 10px;
+}
+
+body {
+  line-height: 1.56;
+  font-size: 1.6rem;
+}
+
+/* Layouts */
+.l_wrapper {
+  /*display: flow-root; /* display  상하단 마진 겹칩 현상 없음 */
+  /* width 값을 지정하지 않아서 줄였을 때 스크롤 방지*/
+  max-width: 1200px;
+  width: auto; /* 기본값, 부모 기준으로 가득 참 */
+  /*  margin-left: auto;  사용 가능 한 공간을 margin으로 몰아준다 
+  margin-right: auto;  */
+  margin: 0 auto; /* 좌우 가운데 정렬*/
+  padding: 0 20px;
+  position: relative;
+}
+
+/* Commons */
+.blind {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+}
+
+/* Components */
+body {
+  background-color: #111;
+  color: #ddd;
+}
+
+.header {
+  /* box-shadow: inset 0 0 10px red; */
+  text-align: center;
+}
+
+.header-logo {
+  /* box-shadow: inset 0 0 10px gold; */
+  width: 240px;
+  height: 50px;
+
+  /* display: block; a 는 인라인 요소라 width, height 지정이 안됨  */
+  /* inline-block: 부모 자식 간의 상하단 마진 겹침 현상 제거, 로고 가운데 정렬 */
+  display: inline-block;
+  vertical-align: middle; /* text-align에 맞춰서 */
+  background-image: url(images/header-logo.jpg);
+  background-image: rgba(245, 236, 236, 0.5);
+  background-repeat: no-repeat;
+  /* background-size: 240px 50px; */
+  background-size: contain;
+  margin: 30px 0;
+}
+
+.header-menu {
+  /* box-shadow: inset 0 0 10px orange; */
+  background-color: #333;
+  /* display: flex; 가로 배치 */
+  white-space: nowrap; /* 인라인 블록 컨트롤, 줄바꿈 안됨 */
+  overflow: auto; /* 넘치면 스크롤 생김 */
+}
+
+.header-menu li {
+  display: inline-block;
+}
+
+.header-menu li a {
+  /* li가 아닌 a 에 패딩 속성을 주어야 클릭 가능한 영역이 넓어짐(보이는 것과 같아짐) */
+  padding: 14px 20px;
+  display: block;
+}
+
+.header-menu li a.is_active {
+  background-color: #111;
+  color: #eee;
+}
+
+.header-point {
+  box-shadow: inset 0 0 10px orange;
+  /* wrapper 를 기준으로 posotion relative 설정하지 않으면 viewport 기준  */
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: none;
+}
+
+.contents {
+  background-color: #111;
+  padding: 40px 0 30px;
+}
+
+.container {
+  /* box-shadow: inset 0 0 30px gold; */
+  display: flex; /* #1  자식 요소 가로 배치*/
+  gap: 30px;
+}
+
+.container-contents {
+  /* box-shadow: inset 0 0 30px blue; */
+  flex-basis: auto; /* #2 기본값, 크기가 내부 컨텐츠 만큼 */
+  flex-grow: 1; /* #4 플렉스 컨테이너 남은 여백을 플렉스 아이템에 전부 줌 */
+}
+
+.container-sidebar {
+  flex-basis: 240px; /* #3 사이즈 지정 */
+  flex-shrink: 0;
+  /* 이미지 넣으면 카드 사이즈가 줄어들기 때문에 사이즈 유지 하려고 씀.
+  초기값: 1 = 얹제든 축소 가능한 사이즈. / 지정 사이즈 유지를 위해서는 0 */
+}
+
+.detail {
+  background-color: white;
+  color: #333;
+  border-radius: 20px;
+  overflow: hidden; /* border 튀어 나온 부분 자르기 */
+}
+
+.detail-cover {
+  vertical-align: top;
+  max-width: 100%; /* 이미지 원래 사이즈가 아닌 직계 부모의 크기까지만 커질 수 있음. */
+  width: 100%;
+}
+
+.detail-main {
+  /* box-shadow: inset 0 0 30px orangered; */
+  display: flex;
+  gap: 30px;
+  padding: 0 30px;
+}
+
+.detail-icon {
+  /* box-shadow: inset 0 0 30px blue; */
+  border-radius: 100%;
+  border: 2px solid #eee;
+  width: 100px;
+  height: 100px;
+  /* 이미지 올리기: position, transform, (-)margin */
+  margin-top: -50px; /* 이미지 100px, 모바일 화면에서도 위치 유지 위해 */
+}
+
+.detail-contents {
+  /* box-shadow: inset 0 0 30px gold; */
+  flex-grow: 1;
+  padding: 30px 0;
+}
+
+.detail-contents h2 {
+  font-size: 2.4rem;
+  margin-bottom: 20px;
+  color: orange;
+}
+.detail-contents h2 span {
+  margin-left: 10px;
+  color: #999;
+  font-size: 1.6rem;
+}
+
+.card {
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: #333;
+  color: salmon; /* 컬러를 상위인 card에 지정해서 하나만 바꿔도 되게 설정 */
+}
+
+.card-cyan {
+  color: cyan;
+}
+
+.card-cover {
+  max-width: 100%;
+}
+
+.card-contents {
+  padding: 20px;
+  border-top: 4px solid;
+  padding: 12px;
+}
+
+.card-contents h2 {
+  font-size: 2.4rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.card-contents p {
+  color: #999;
+}
+
+.footer {
+  border-top: 2px solid #444;
+  padding: 30px 0;
+}
+
+/* 할아버지가 메뉴 안가리도록 창 커졌을 때만 나오게 함 */
+@media (min-width: 1200px) {
+  .header {
+    text-align: left;
+  }
+  .header-point {
+    display: block;
+  }
+}
+/* 사이즈 줄었을 때 사이드바 사라짐 */
+/* 미디어 쿼리가 안되는 경우(동영상 등)도 있으므로 추가 class를 달아준다 */
+@media (max-width: 960px) {
+  .container-sidebar.tablet_none {
+    display: none;
+  }
+}
+
+@media (max-width: 720px) {
+  body {
+    font-size: 1.4rem;
+  }
+
+  .header-logo {
+    width: 120px;
+    height: 25px;
+    background-size: contain;
+    margin: 20px 0;
+  }
+  .detail {
+    text-align: center;
+  }
+  .detail-main {
+    display: block;
+  }
+  .detail-contents h2 {
+    font-size: 1.8rem;
+  }
+  .footer {
+    text-align: center;
+    padding: 20px 0;
+  }
+}
+
+/* 미디어 쿼리 1200px 1:40 */
+/* 1. header text-align: center 추가
+2. header-logo display: inline-block 으로 변경
+               vertical-align: middle 추가
+3. header-menu display: flex 삭제
+4. header-menu li display: inline-block 추가
+5. @media header text-align: left 추가
+
+/* 미디어 쿼리 720px 1:40 */
+/* 1. @media detail text-align: center 추가
+ detail-main display: block 추가
+2. header-menu white-space: norap 추가
+overflow: auto 추가
+3. @media header-logo
+
+/* 폰트 사이즈 */
+/* root font-size: 10px, 
+   body font-size: 1.6 rem 으로 기본값 설정
+   다른 폰트 사이즈를 rem 단위로 변경
+   @media 720px 에서 body font-size: 1.4 rem 
+ */
